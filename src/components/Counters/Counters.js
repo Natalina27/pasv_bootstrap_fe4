@@ -4,14 +4,13 @@ import {useCounter} from "../assets/useCounter";
 export const Counter = ({x}) => {
 
     const { count,  handleMinus, handlePlus, handleReset } = useCounter(x);
-    console.log('count', count);
 
     return (
-        <div>
-            <button onClick={handleMinus}>-{x}</button>
-            <div>{count}</div>
-            <button  onClick={handlePlus}>+{x}</button>
-            <button  onClick={handleReset}>RESET</button>
+        <div className="list-group-item d-flex justify-content-between">
+            <button className="btn btn-outline-info m-3" onClick={handleMinus}>-{x}</button>
+            <span className="h3 m-3">{count}</span>
+            <button  className="btn btn-outline-info m-3" onClick={handlePlus}>+{x}</button>
+            <button  className="btn btn-info m-3" onClick={handleReset}>RESET</button>
         </div>
     );
 };
