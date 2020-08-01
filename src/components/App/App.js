@@ -1,17 +1,28 @@
 import React from 'react';
 import {Counter} from "../Counters/Counters";
+import {useCounter} from "../assets/useCounter";
 
 function App() {
-    const x = 1, y = 10, rand = +(Math.random() * 10).toFixed();
+
+    const {list, count, handleDelete, handleMinus, handlePlus, handleReset, handleAddCounter} = useCounter();
+
     return (
         <div className="container d-flex justify-content-center align-items-center flex-column">
             <h1 className="font-weight-lighter">Counters</h1>
             <ul className="list-group mb-2">
-                <Counter x={x}/>
-                <Counter x={y}/>
-                <Counter x={rand}/>
+                {[...list].map(el => (
+                    <Counter
+                        key={el.id}
+                        id={el.id}
+                        count={count}
+                        handleDelete={handleDelete}
+                        handleMinus={handleMinus}
+                        handlePlus={handlePlus}
+                        handleReset={handleReset}
+                    />
+                    ))}
             </ul>
-            <button className="btn btn-info mb-3">ADD COUNTER</button>
+            <button className="btn btn-info mb-3" onClick={handleAddCounter}>ADD COUNTER</button>
         </div>
     );
 }
