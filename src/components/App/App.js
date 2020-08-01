@@ -10,11 +10,12 @@ function App() {
         <div className="container d-flex justify-content-center align-items-center flex-column">
             <h1 className="font-weight-lighter">Counters</h1>
             <ul className="list-group mb-2">
-                {[...list].map(el => (
+                {list.map(el => (
                     <Counter
                         key={el.id}
                         id={el.id}
                         count={count}
+                        value={el.value}
                         handleDelete={handleDelete}
                         handleMinus={handleMinus}
                         handlePlus={handlePlus}
