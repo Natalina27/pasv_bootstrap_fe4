@@ -4,7 +4,7 @@ import {useCounter} from "../assets/useCounter";
 
 function App() {
 
-    const {list, count, handleDelete, handleMinus, handlePlus, handleReset, handleAddCounter} = useCounter();
+    const { list, count, handleDelete, handleMinus, handlePlus, handleReset, handleAddCounter} = useCounter();
 
     return (
         <div className="container d-flex justify-content-center align-items-center flex-column">

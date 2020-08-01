@@ -1,8 +1,10 @@
-import  {useState} from "react";
+import {useState} from "react";
 import {_reset} from "./_reset";
 import {_decrease} from "./_decrease";
 import {_increase} from "./_increase";
-import { v4 as uuid } from 'uuid';
+import {_addCounter} from "./_addCounter";
+import {_deleteCounter} from "./_deleteCounter";
+import {v4 as uuid} from 'uuid';
 
 export const useCounter = (value) => {
 
@@ -23,19 +25,9 @@ export const useCounter = (value) => {
 
     const handleReset = () => setCount(_reset);
 
-    const handleAddCounter =() => {
-        const newList = [...list,{"id": uuid(), "value": rand}];
-        setList(newList);
-    }
+    const handleAddCounter = () => setList(_addCounter(list, rand));
 
-    const handleDelete =(id) => {
-        const idx =list.findIndex((el) => el.id === id);
-        const newList =  [
-            ...list.slice(0, idx),
-            ...list.slice(idx + 1)
-        ];
-        setList(newList);
-    }
+    const handleDelete = (id) => setList(_deleteCounter(id, list));
 
     return {
         count,
