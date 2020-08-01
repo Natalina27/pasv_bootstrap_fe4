@@ -9,7 +9,7 @@ function App() {
     return (
         <div className="container d-flex justify-content-center align-items-center flex-column">
             <h1 className="font-weight-lighter">Counters</h1>
-            <ul className="list-group mb-2">
+            <div className="d-flex flex-column justify-content-between">
                 {list.map(el => (
                     <Counter
                         key={el.id}
@@ -22,7 +22,7 @@ function App() {
                         handleReset={handleReset}
                     />
                     ))}
-            </ul>
+            </div>
             <button className="btn btn-info mb-3" onClick={handleAddCounter}>ADD COUNTER</button>
         </div>
     );
